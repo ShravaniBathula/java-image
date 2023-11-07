@@ -1,5 +1,5 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/golden-hook-402609/java-image1:v1', '.' ]
+  args: [ 'build', '-t', 'gcr.io/golden-hook-402609/java-image1:latest', '.' ]
 images:
-- 'gcr.io/golden-hook-402609/java-image1:v1'
+- 'gcr.io/golden-hook-402609/java-image1:latest'
