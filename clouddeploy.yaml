@@ -1,10 +1,10 @@
 steps:
-  - name: 'gcr.io/cloud-builders/kubectl'
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=private-cluster-0'
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
     args:
-      - 'apply'
-      - '-f'
-      - 'deployment.yaml'
-    condition: '$BRANCH_NAME == "master"'
+      - '-c'
+        if [[ "$BRANCH_NAME" == "master" ]]; then
+          kubectl apply -f deployment.yaml
+        else
+          echo "Skipping the command for branches other than master"
+        fi
