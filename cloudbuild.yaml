@@ -1,5 +1,21 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/golden-hook-402609/java-image1:latest', '.' ]
-images:
-- 'gcr.io/golden-hook-402609/java-image1:latest'
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        if [[ "$BRANCH_NAME" == "master" ]]
+        then
+          gcloud container clusters update private-cluster-0 \
+          --region=us-central1 \
+          --enable-master-authorized-networks \
+        fi
+      
+  - name: 'gcr.io/cloud-builders/kubectl'
+    env:
+     - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+     - 'CLOUDSDK_CONTAINER_CLUSTER=private-cluster-0'
+    args:
+     - '-f'
+     - 'apply'
+     - 'deployoment.yaml'
