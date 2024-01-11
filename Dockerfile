@@ -3,5 +3,5 @@
 FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 COPY . /app
-RUN javac simple.java
+RUN javac sample.java
 CMD ["java", "sample"]
