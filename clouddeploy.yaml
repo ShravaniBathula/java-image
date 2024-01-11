@@ -4,8 +4,5 @@ steps:
     args:
       - '-c'
       - |
-        if [ "$BRANCH_NAME" != "master" ]; then
-          echo "Skipping deployment for branch $BRANCH_NAME"
-          exit 0
-        fi
+        gcloud container clusters get-credentials private-cluster-0 --region=us-central1
         kubectl apply -f deployment.yaml
