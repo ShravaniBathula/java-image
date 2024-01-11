@@ -5,7 +5,7 @@ steps:
       - '--tag=gcr.io/atlantean-glyph-410909/kubectl'
       - '.'
 
-  - name: 'gcr.io/cloud-builders/kubectl'
+  - name: 'gcr.io/cloud-builders/gke-deploy'
     env:
       - CLOUDSDK_COMPUTE_REGION=us-central1
       - CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1
