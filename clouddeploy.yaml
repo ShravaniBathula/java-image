@@ -11,5 +11,4 @@ steps:
           echo "Skipping deployment for branch $BRANCH_NAME"
           exit 0
         fi
-      - 'apply'
-      - '-f' deployment.yaml
+        kubectl apply -f deployment.yaml
