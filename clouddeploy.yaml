@@ -16,6 +16,10 @@ steps:
      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
      - 'CLOUDSDK_CONTAINER_CLUSTER=private-cluster-0'
     args:
-     - '-f'
-     - 'apply'
-     - 'deployoment.yaml'
+     - '-c'
+     - |
+        if [[ "$BRANCH_NAME" == "master" ]]
+        then
+          - 'apply'
+          - '-f'
+          - 'deployoment.yaml'
