@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java
+  template:
+    metadata:
+      labels:
+        app: java
+    spec:
+      containers:
+      - name: java-image1
+        image: gcr.io/atlantean-glyph-410909/java-image1@sha256:532787f5782b0830f13a9fc5023bd362d5dcf618456fcf480bb8bdace6db73d9
+        ports:
+        - containerPort: 8080
