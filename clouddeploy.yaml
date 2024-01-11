@@ -1,13 +1,10 @@
-steps:   
+steps:
   - name: 'gcr.io/cloud-builders/kubectl'
     env:
-     - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-     - 'CLOUDSDK_CONTAINER_CLUSTER=private-cluster-0'
+      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=private-cluster-0'
     args:
-     - '-c'
-     - |
-        if [[ "$BRANCH_NAME" == "master" ]]
-        then
-          - 'apply'
-          - '-f'
-          - 'deployment.yaml'
+      - 'apply'
+      - '-f'
+      - 'deployment.yaml'
+    condition: '$BRANCH_NAME == "master"'
