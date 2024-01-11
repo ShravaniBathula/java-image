@@ -1,15 +1,10 @@
 steps:
-  - name: 'gcr.io/cloud-builders/kubectl'
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        if [ "$BRANCH_NAME" == "master" ]; then
-          echo "Applying deployment.yaml"
-          kubectl apply -f deployment.yaml
-        else
-          echo "Skipping deployment for branch $BRANCH_NAME"
-        fi
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: Deploy
+  args:
+  - 'apply'
+  - '-f'
+  - 'kubernetes.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=auto=pilot-cluster-1'
