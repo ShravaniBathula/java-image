@@ -8,6 +8,7 @@ steps:
       - '-c'
       - |
         if [ "$BRANCH_NAME" == "master" ]; then
+          echo "Applying deployment.yaml"
           kubectl apply -f deployment.yaml
         else
           echo "Skipping deployment for branch $BRANCH_NAME"
