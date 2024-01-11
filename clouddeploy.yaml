@@ -1,12 +1,12 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-  args:
-  - 'build'
-  - '--tag=gcr.io/atlantean-glyph-410909/kubectl'
-  - '.'
+    args:
+      - 'build'
+      - '--tag=gcr.io/atlantean-glyph-410909/kubectl'
+      - '.'
 
   images:
-  - 'gcr.io/atlantean-glyph-410909/kubectl'
+    - 'gcr.io/atlantean-glyph-410909/kubectl'
   
   - name: 'gcr.io/cloud-builders/kubectl'
     env:
