@@ -2,7 +2,7 @@ steps:
   - name: 'gcr.io/cloud-builders/kubectl'
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=private-cluster-0'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1'
     entrypoint: 'bash'
     args:
       - '-c'
