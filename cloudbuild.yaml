@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/atlantean-glyph-410909/java-image1:latest', '.' ]
+images:
+- 'gcr.io/atlantean-glyph-410909/java-image1:latest'
