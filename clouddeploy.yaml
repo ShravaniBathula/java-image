@@ -1,8 +1,10 @@
 steps:
   - name: 'gcr.io/cloud-builders/kubectl'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        gcloud container clusters get-credentials private-cluster-0 --region=us-central1
-        kubectl apply -f deployment.yaml
+    env:
+      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=your-cluster-name'
+
+    if [[ "$BRANCH_NAME" == "master" ]]; then
+      args: ['apply', '-f', 'deployment.yaml']
+    fi  
+    
