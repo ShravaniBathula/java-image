@@ -4,7 +4,9 @@ steps:
       - 'build'
       - '--tag=gcr.io/atlantean-glyph-410909/kubectl'
       - '.'
-
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ["push", "gcr.io/gcr.io/atlantean-glyph-410909/java-image1"]
+    
   - name: 'gcr.io/cloud-builders/gke-deploy'
     env:
       - CLOUDSDK_COMPUTE_REGION=us-central1
