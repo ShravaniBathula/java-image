@@ -19,5 +19,6 @@ steps:
         else
           echo "Skipping deployment for branch $BRANCH_NAME"
         fi
-  options:
-   logging: NONE      
+
+options:
+  logging: NONE
