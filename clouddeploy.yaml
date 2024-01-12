@@ -5,7 +5,7 @@ steps:
       - '--tag=gcr.io/atlantean-glyph-410909/kubectl'
       - '.'
   - name: 'gcr.io/cloud-builders/docker'
-    args: ["push", "gcr.io/atlantean-glyph-410909/java-image1"]
+    args: ["push", "gcr.io/atlantean-glyph-410909/java-image1@sha256:c498187bf1d14038a091cb736dbde2f767eeee5f67e9bfa0e378d40427a863df"]
     
   - name: 'gcr.io/cloud-builders/gke-deploy'
     env:
