@@ -1,0 +1,16 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'compute'
+      - 'firewall-rules'
+      - 'create'
+      - 'firewall'
+      - '--direction=INGRESS'
+      - '--priority=1000'
+      - '--network=vpc1'
+      - '--action=ALLOW'
+      - '--rules=icmp'
+      - '--source-ranges=0.0.0.0/0'
+    tags:  # Add network tags here
+      - 'webserver'
+      - 'icmp-access'
