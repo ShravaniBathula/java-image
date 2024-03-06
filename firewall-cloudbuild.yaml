@@ -12,5 +12,4 @@ steps:
       - '--rules=icmp'
       - '--source-ranges=0.0.0.0/0'
     tags:  # Add network tags here
-      - 'webserver'
       - 'icmp-access'
