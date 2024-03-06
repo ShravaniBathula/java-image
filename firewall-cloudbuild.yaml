@@ -11,5 +11,4 @@ steps:
       - '--action=ALLOW'
       - '--rules=icmp'
       - '--source-ranges=0.0.0.0/0'
-    tags:  # Add network tags here
-      - 'icmp-access'
+      - '--target-tags=icmp-access'
